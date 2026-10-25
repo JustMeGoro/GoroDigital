@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gorodigital.kontakt-gorodigital.workers.dev/sitemap.xml
