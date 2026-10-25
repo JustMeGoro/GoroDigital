@@ -27,18 +27,23 @@ nav a:hover{color:var(--ink)}
 .btn:hover{background:#5a3a4b}
 .btn--ol{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
 .btn--ol:hover{background:var(--ink);color:#fff}
-.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;padding:40px 0 90px;min-height:620px}
+.hero{text-align:center;padding:30px 0 0}
 .eyebrow{font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mu);margin-bottom:22px}
-h1{font:500 clamp(3.2rem,7vw,6rem)/.95 'Cormorant Garamond';letter-spacing:-.015em}
+h1{font:500 clamp(2.8rem,6.4vw,5.4rem)/.98 'Cormorant Garamond';letter-spacing:-.015em}
 h1 em{font-style:italic;color:#b5607e}
-.lead{margin-top:24px;font-size:1.15rem;color:var(--mu);max-width:460px}
-.cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
-.arch{position:relative;aspect-ratio:4/5;max-width:440px;margin-left:auto;border-radius:999px 999px 24px 24px;background:linear-gradient(170deg,var(--bl2),var(--bl));overflow:hidden}
-.arch::before{content:"";position:absolute;width:62%;aspect-ratio:1;left:19%;top:16%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff7f1,#f1c3cf 70%);box-shadow:0 30px 60px -20px rgba(58,36,48,.35)}
-.arch::after{content:"";position:absolute;left:-10%;right:-10%;bottom:-12%;height:44%;border-radius:50%;background:var(--ink);opacity:.92}
-.note{position:absolute;left:-8%;bottom:12%;background:#fff;border-radius:16px;padding:14px 20px;box-shadow:0 20px 40px -18px rgba(58,36,48,.4);font-size:.95rem}
-.note b{font:600 1.5rem 'Cormorant Garamond';display:block}
-.hero__r{position:relative}
+.lead{margin:18px auto 0;font-size:1.15rem;color:var(--mu);max-width:520px}
+.cta{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap;justify-content:center}
+.arches{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;align-items:end;margin-top:30px}
+.arc{position:relative;border-radius:999px 999px 20px 20px;padding:0 20px 24px;display:flex;flex-direction:column;justify-content:flex-end;text-align:center;overflow:hidden;transition:transform .3s}
+.arc:hover{transform:translateY(-8px)}
+.arc span{font:500 1.6rem 'Cormorant Garamond';line-height:1.1}
+.arc small{display:block;font-size:.85rem;margin-top:4px;opacity:.75}
+.arc b{display:block;margin-top:8px;font-weight:500}
+.arc::before{content:'';position:absolute;left:50%;top:14%;width:46%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.85),rgba(255,255,255,.1) 70%)}
+.a1{height:240px;background:linear-gradient(170deg,#f5d6de,#e8b4c4)}
+.a2{height:300px;background:linear-gradient(170deg,#3a2430,#5a3a4b);color:#fff}
+.a3{height:265px;background:linear-gradient(170deg,#efe3f5,#cdb4de)}
+.a4{height:220px;background:linear-gradient(170deg,#fde9d9,#f1c4a8)}
 section{padding:90px 0}
 .alt{background:#fff;border-block:1px solid var(--line)}
 h2{font:500 clamp(2.2rem,4.5vw,3.4rem)/1 'Cormorant Garamond';margin-bottom:12px}
@@ -56,7 +61,7 @@ h2 em{font-style:italic;color:#b5607e}
 .final{text-align:center}
 .final p{color:var(--mu);margin:14px 0 30px}
 footer{padding:30px 0;color:var(--mu);font-size:.9rem;text-align:center}
-@media(max-width:860px){nav{display:none}.hero{grid-template-columns:1fr;min-height:0}.arch{margin:0;max-width:320px}.prices,.info{grid-template-columns:1fr}.note{left:0}}
+@media(max-width:860px){nav{display:none}.arches{grid-template-columns:1fr 1fr}.a1,.a2,.a3,.a4{height:230px}.prices,.info{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -67,14 +72,17 @@ footer{padding:30px 0;color:var(--mu);font-size:.9rem;text-align:center}
     <nav><a href="#cenik">Ceník</a><a href="#kontakt">Kontakt</a></nav>
     <a class="btn" href="#rezervace">Rezervovat</a>
   </header>
-  <div class="hero">
-    <div>
-      <p class="eyebrow">Kadeřnictví · Brno</p>
-      <h1>Střih, který <em>sedí.</em><br>A vydrží.</h1>
-      <p class="lead">Klidné prostředí, čas jen pro vás a ceny, které znáte předem. Objednejte se online za půl minuty.</p>
-      <div class="cta"><a class="btn" id="rezervace" href="#kontakt">Rezervovat termín</a><a class="btn btn--ol" href="#cenik">Ceník</a></div>
-    </div>
-    <div class="hero__r"><div class="arch"></div><div class="note"><b>Volné termíny</b>tento týden ještě 6</div></div>
+  </div>
+<div class="wrap hero">
+  <p class="eyebrow">Kadeřnictví · Brno</p>
+  <h1>Střih, který <em>sedí.</em> A vydrží.</h1>
+  <p class="lead">Klidné prostředí, čas jen pro vás a ceny, které znáte předem. Objednejte se online za půl minuty.</p>
+  <div class="cta"><a class="btn" id="rezervace" href="#kontakt">Rezervovat termín</a><a class="btn btn--ol" href="#cenik">Ceník</a></div>
+  <div class="arches">
+    <a class="arc a1" href="#cenik"><span>Dámský střih</span><small>mytí, střih, foukaná</small><b>od 690 Kč</b></a>
+    <a class="arc a2" href="#cenik"><span>Barvení</span><small>včetně péče</small><b>od 1 200 Kč</b></a>
+    <a class="arc a3" href="#cenik"><span>Pánský střih</span><small>nůžky i strojek</small><b>od 390 Kč</b></a>
+    <a class="arc a4" href="#cenik"><span>Foukaná</span><small>na večer nebo focení</small><b>od 350 Kč</b></a>
   </div>
 </div>
 <section id="cenik" class="alt"><div class="wrap">
