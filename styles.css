@@ -64,7 +64,7 @@ h1{font-family:var(--display);font-size:clamp(2.6rem,6.2vw,5.3rem);line-height:1
 .lead{margin-top:26px;font-size:1.2rem;color:var(--muted);max-width:520px}
 .hero__actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
 .hero__facts{display:flex;gap:40px;margin-top:56px;padding-top:28px;border-top:2px solid var(--ink)}
-.hero__facts strong{font-family:var(--display);font-size:2.6rem;letter-spacing:-.05em;font-weight:800;display:block;line-height:1}
+.hero__facts strong{font-family:var(--display);font-size:1.9rem;white-space:nowrap;letter-spacing:-.05em;font-weight:800;display:block;line-height:1}
 .hero__facts small{display:block;margin-top:8px;color:var(--muted);font-size:.82rem;line-height:1.35}
 
 /* BROWSER MOCK */
@@ -270,7 +270,11 @@ h2{font-family:var(--display);font-size:clamp(2.1rem,4.4vw,3.6rem);line-height:1
   .hero{padding:120px 0 60px}
   .cards,.work{grid-template-columns:1fr}
   .hero__facts{gap:22px}
-  .hero__facts strong{font-size:2rem}
+  .hero__visual{display:none}
+  .hero{padding-bottom:40px}
+  .hero__facts{gap:16px}
+  .hero__facts strong{font-size:1.2rem}
+  .hero__facts small{font-size:.74rem}
   .steps li{grid-template-columns:64px 1fr}
   .n{font-size:2.6rem}
   .chip--a{left:-6px}.chip--b{right:-4px}
