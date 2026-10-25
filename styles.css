@@ -174,6 +174,14 @@ h2 em{font-size:1.08em}
 .steps h3{font-size:1.5rem;letter-spacing:-.03em;margin-bottom:8px}
 .steps p{color:var(--muted);max-width:460px}
 
+/* QUOTE */
+.quote{padding:40px 0 130px}
+.quote blockquote{position:relative;max-width:980px;margin-inline:auto;text-align:center}
+.quote__mark{display:block;font-family:var(--serif);font-size:5.5rem;line-height:1;height:.55em;color:var(--accent);opacity:.9;margin-bottom:34px}
+.quote p{font-size:clamp(1.9rem,4.2vw,3.4rem);line-height:1.12;letter-spacing:-.04em;font-weight:600}
+.quote p em{font-size:1.08em;background:linear-gradient(100deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.05em}
+.quote footer{margin-top:28px;font-size:.82rem;text-transform:uppercase;letter-spacing:.14em;font-weight:600;color:var(--muted)}
+
 /* PLANS */
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
 .plan{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px 32px;display:flex;flex-direction:column;transition:transform .35s var(--ease),box-shadow .35s}
