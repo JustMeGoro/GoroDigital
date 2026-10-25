@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /demo/
 
 Sitemap: https://gorodigital.kontakt-gorodigital.workers.dev/sitemap.xml

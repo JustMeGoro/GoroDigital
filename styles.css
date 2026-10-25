@@ -135,6 +135,8 @@ h2{font-family:var(--display);font-size:clamp(2.1rem,4.4vw,3.6rem);line-height:1
 .work__meta h3{font-family:var(--display);font-size:1.25rem;letter-spacing:-.04em;font-weight:800}
 .work__meta p{color:var(--muted);font-size:.93rem}
 .tag{font-size:.72rem;font-weight:700;padding:5px 11px;border-radius:6px;border:1.5px solid var(--ink);background:#fff;white-space:nowrap}
+.thumb{position:relative;aspect-ratio:16/10;overflow:hidden;background:#fff}
+.thumb iframe{position:absolute;left:0;top:0;width:1280px;height:800px;border:0;transform-origin:0 0;transform:scale(.3);pointer-events:none}
 .browser--sm .browser__body{height:250px;padding:14px;display:flex;flex-direction:column;gap:12px}
 .m-top{display:flex;gap:10px;align-items:center}
 .m-top b{width:44px;height:9px;border-radius:5px;background:currentColor}

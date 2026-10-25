@@ -70,6 +70,13 @@ if (tilt && matchMedia('(hover:hover) and (min-width:1061px)').matches) {
   hero.addEventListener('pointerleave', () => { tilt.style.transform = ''; });
 }
 
+// Portfolio previews: scale the 1280x800 demo iframes to fit their card
+const fitThumbs = () => $$('.thumb').forEach(t => {
+  $('iframe', t).style.transform = `scale(${t.clientWidth / 1280})`;
+});
+fitThumbs();
+addEventListener('resize', fitThumbs);
+
 // Contact form: sends the inquiry via Web3Forms (delivered to the owner's inbox).
 // The access key is public by design (it can only deliver to the owner's inbox).
 // If the key is missing, the form falls back to opening the visitor's mail client.

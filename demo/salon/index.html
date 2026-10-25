@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Salon Linie – ukázkový koncept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbf3ee;--ink:#3a2430;--mu:#8a7079;--bl:#e8b4c4;--bl2:#f5d6de;--line:#ead9d6}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Jost,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+a{color:inherit;text-decoration:none}
+.demo-bar{background:var(--ink);color:#fff;font:500 13px/1 system-ui,sans-serif;text-align:center;padding:10px 12px}
+.demo-bar a{font-weight:700;text-decoration:underline}
+.in-frame .demo-bar{display:none}
+.wrap{width:min(1160px,100% - 48px);margin-inline:auto}
+header{display:flex;align-items:center;justify-content:space-between;padding:26px 0}
+.logo{font:600 1.9rem 'Cormorant Garamond';letter-spacing:.02em}
+.logo i{font-weight:500}
+nav{display:flex;gap:34px;color:var(--mu)}
+nav a:hover{color:var(--ink)}
+.btn{display:inline-block;background:var(--ink);color:#fff;padding:15px 30px;border-radius:99px;font-weight:500;letter-spacing:.02em;transition:.2s}
+.btn:hover{background:#5a3a4b}
+.btn--ol{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn--ol:hover{background:var(--ink);color:#fff}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;padding:40px 0 90px;min-height:620px}
+.eyebrow{font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mu);margin-bottom:22px}
+h1{font:500 clamp(3.2rem,7vw,6rem)/.95 'Cormorant Garamond';letter-spacing:-.015em}
+h1 em{font-style:italic;color:#b5607e}
+.lead{margin-top:24px;font-size:1.15rem;color:var(--mu);max-width:460px}
+.cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+.arch{position:relative;aspect-ratio:4/5;max-width:440px;margin-left:auto;border-radius:999px 999px 24px 24px;background:linear-gradient(170deg,var(--bl2),var(--bl));overflow:hidden}
+.arch::before{content:"";position:absolute;width:62%;aspect-ratio:1;left:19%;top:16%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff7f1,#f1c3cf 70%);box-shadow:0 30px 60px -20px rgba(58,36,48,.35)}
+.arch::after{content:"";position:absolute;left:-10%;right:-10%;bottom:-12%;height:44%;border-radius:50%;background:var(--ink);opacity:.92}
+.note{position:absolute;left:-8%;bottom:12%;background:#fff;border-radius:16px;padding:14px 20px;box-shadow:0 20px 40px -18px rgba(58,36,48,.4);font-size:.95rem}
+.note b{font:600 1.5rem 'Cormorant Garamond';display:block}
+.hero__r{position:relative}
+section{padding:90px 0}
+.alt{background:#fff;border-block:1px solid var(--line)}
+h2{font:500 clamp(2.2rem,4.5vw,3.4rem)/1 'Cormorant Garamond';margin-bottom:12px}
+h2 em{font-style:italic;color:#b5607e}
+.sub{color:var(--mu);margin-bottom:40px}
+.prices{display:grid;grid-template-columns:repeat(2,1fr);gap:0 70px}
+.p{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}
+.p span{font:500 1.5rem 'Cormorant Garamond'}
+.p small{display:block;font:400 .9rem Jost;color:var(--mu)}
+.p b{font-weight:500;white-space:nowrap}
+.info{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.box{background:var(--bg);border-radius:20px;padding:30px;border:1px solid var(--line)}
+.box h3{font:600 1.5rem 'Cormorant Garamond';margin-bottom:10px}
+.box p{color:var(--mu)} .box b{color:var(--ink);font-weight:500}
+.final{text-align:center}
+.final p{color:var(--mu);margin:14px 0 30px}
+footer{padding:30px 0;color:var(--mu);font-size:.9rem;text-align:center}
+@media(max-width:860px){nav{display:none}.hero{grid-template-columns:1fr;min-height:0}.arch{margin:0;max-width:320px}.prices,.info{grid-template-columns:1fr}.note{left:0}}
+</style>
+</head>
+<body>
+<div class="demo-bar">Ukázkový koncept webu pro fiktivní firmu · vytvořil <a href="../../">GoroDigital</a></div>
+<div class="wrap">
+  <header>
+    <a class="logo" href="#">Salon <i>Linie</i></a>
+    <nav><a href="#cenik">Ceník</a><a href="#kontakt">Kontakt</a></nav>
+    <a class="btn" href="#rezervace">Rezervovat</a>
+  </header>
+  <div class="hero">
+    <div>
+      <p class="eyebrow">Kadeřnictví · Brno</p>
+      <h1>Střih, který <em>sedí.</em><br>A vydrží.</h1>
+      <p class="lead">Klidné prostředí, čas jen pro vás a ceny, které znáte předem. Objednejte se online za půl minuty.</p>
+      <div class="cta"><a class="btn" id="rezervace" href="#kontakt">Rezervovat termín</a><a class="btn btn--ol" href="#cenik">Ceník</a></div>
+    </div>
+    <div class="hero__r"><div class="arch"></div><div class="note"><b>Volné termíny</b>tento týden ještě 6</div></div>
+  </div>
+</div>
+<section id="cenik" class="alt"><div class="wrap">
+  <h2>Ceník <em>služeb</em></h2>
+  <p class="sub">Konečné ceny. Žádné příplatky za délku vlasů.</p>
+  <div class="prices">
+    <div class="p"><span>Dámský střih<small>mytí, střih, foukaná</small></span><b>od 690 Kč</b></div>
+    <div class="p"><span>Pánský střih<small>střih strojkem i nůžkami</small></span><b>od 390 Kč</b></div>
+    <div class="p"><span>Barvení<small>včetně péče</small></span><b>od 1 200 Kč</b></div>
+    <div class="p"><span>Melír / balayage<small>dle délky a odstínu</small></span><b>od 2 400 Kč</b></div>
+    <div class="p"><span>Foukaná / úprava<small>na večer nebo focení</small></span><b>od 350 Kč</b></div>
+    <div class="p"><span>Regenerační kúra<small>hloubková péče</small></span><b>od 450 Kč</b></div>
+  </div>
+</div></section>
+<section id="kontakt"><div class="wrap">
+  <div class="info">
+    <div class="box"><h3>Otevírací doba</h3><p><b>Po–Pá</b> 9:00–19:00<br><b>So</b> 9:00–14:00<br><b>Ne</b> zavřeno</p></div>
+    <div class="box"><h3>Salon</h3><p>Ukázková 5<br>602 00 Brno<br>5 min od zastávky</p></div>
+    <div class="box"><h3>Rezervace</h3><p><b>000 000 000</b><br>salon@ukazka-linie.cz<br>nebo přes formulář</p></div>
+  </div>
+</div></section>
+<section class="final"><div class="wrap"><h2>Těšíme se <em>na vás.</em></h2><p>Stačí vybrat termín. Zbytek necháte na nás.</p><a class="btn" href="#kontakt">Rezervovat termín</a></div></section>
+<footer>© Salon Linie · fiktivní firma, ukázkový koncept webu od GoroDigital</footer>
+<script>if(window.self!==window.top)document.documentElement.classList.add('in-frame')</script>
+</body>
+</html>

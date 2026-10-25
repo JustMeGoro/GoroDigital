@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Bistro U Mlýna – ukázkový koncept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3ead9;--ink:#2b1d12;--mu:#7a6a58;--gr:#3f6b4a;--paper:#fffaf0;--line:#dccfb6;--br:#9a5b2c}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+a{color:inherit;text-decoration:none}
+.demo-bar{background:var(--ink);color:#fff;font:500 13px/1 system-ui,sans-serif;text-align:center;padding:10px 12px}
+.demo-bar a{font-weight:700;text-decoration:underline}
+.in-frame .demo-bar{display:none}
+.wrap{width:min(1160px,100% - 48px);margin-inline:auto}
+header{display:flex;align-items:center;justify-content:space-between;padding:24px 0}
+.logo{font:700 1.6rem Fraunces;letter-spacing:-.02em}
+.logo span{color:var(--br)}
+nav{display:flex;gap:30px;color:var(--mu);font-weight:500}
+nav a:hover{color:var(--ink)}
+.open{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--ink);border-radius:99px;padding:9px 16px;font-weight:700;font-size:.9rem}
+.open i{width:9px;height:9px;border-radius:50%;background:#2fbf5a}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;padding:40px 0 90px;min-height:640px}
+.kick{display:inline-block;font:700 .8rem 'DM Sans';letter-spacing:.14em;text-transform:uppercase;color:var(--gr);margin-bottom:20px}
+h1{font:700 clamp(3rem,6.6vw,5.6rem)/.98 Fraunces;letter-spacing:-.035em}
+h1 em{font-style:normal;color:var(--br)}
+.lead{margin-top:22px;font-size:1.15rem;color:var(--mu);max-width:470px}
+.cta{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}
+.btn{display:inline-block;padding:15px 26px;border-radius:12px;font-weight:700;background:var(--ink);color:#fff}
+.btn:hover{background:var(--gr)}
+.btn--ol{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.btn--ol:hover{background:var(--ink);color:#fff}
+.menu{position:relative;background:var(--paper);border:2px solid var(--ink);border-radius:18px;padding:34px 36px;box-shadow:12px 12px 0 var(--gr);transform:rotate(1.2deg)}
+.menu h3{font:700 1.7rem Fraunces;letter-spacing:-.02em}
+.menu .day{color:var(--mu);font-size:.95rem;margin:2px 0 20px}
+.m{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-top:1.5px dashed var(--line)}
+.m span small{display:block;color:var(--mu);font-size:.88rem}
+.m b{white-space:nowrap}
+.menu .tot{margin-top:16px;padding-top:16px;border-top:2px solid var(--ink);display:flex;justify-content:space-between;font-weight:700}
+.stamp{position:absolute;right:-22px;top:-26px;background:var(--gr);color:#fff;border-radius:50%;width:92px;height:92px;display:grid;place-items:center;text-align:center;font:700 .85rem/1.15 'DM Sans';transform:rotate(12deg);border:3px solid var(--ink)}
+section{padding:90px 0}
+.alt{background:var(--paper);border-block:2px solid var(--ink)}
+h2{font:700 clamp(2rem,4vw,3rem)/1 Fraunces;letter-spacing:-.03em;margin-bottom:34px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.box{background:var(--bg);border:2px solid var(--ink);border-radius:16px;padding:28px}
+.box h3{font:700 1.3rem Fraunces;margin-bottom:10px;color:var(--br)}
+.box p{color:var(--mu)} .box b{color:var(--ink)}
+.food{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.dish{border:2px solid var(--ink);border-radius:16px;overflow:hidden;background:#fff}
+.dish i{display:block;aspect-ratio:4/3;background:linear-gradient(135deg,#6b4226,#c68a4e 70%,#e9b877)}
+.dish:nth-child(2) i{background:linear-gradient(135deg,#3f6b4a,#8bb08a 70%,#d4e4c4)}
+.dish:nth-child(3) i{background:linear-gradient(135deg,#a8452c,#e08a5c 70%,#f6cfa6)}
+.dish div{padding:18px 20px}.dish b{font:700 1.15rem Fraunces;display:block}.dish small{color:var(--mu)}
+footer{padding:32px 0;color:var(--mu);font-size:.9rem}
+@media(max-width:860px){nav{display:none}.hero{grid-template-columns:1fr;min-height:0;gap:50px}.grid,.food{grid-template-columns:1fr}.menu{transform:none}}
+</style>
+</head>
+<body>
+<div class="demo-bar">Ukázkový koncept webu pro fiktivní firmu · vytvořil <a href="../../">GoroDigital</a></div>
+<div class="wrap">
+  <header>
+    <a class="logo" href="#">Bistro <span>U Mlýna</span></a>
+    <nav><a href="#menu">Denní menu</a><a href="#kde">Kde nás najdete</a></nav>
+    <span class="open"><i></i> Dnes otevřeno do 15:00</span>
+  </header>
+  <div class="hero">
+    <div>
+      <span class="kick">Bistro · Plzeň</span>
+      <h1>Doma vařené.<br><em>Každý den</em> čerstvé.</h1>
+      <p class="lead">Denní menu z místních surovin, polévka v ceně a oběd hotový za pár minut. Přijďte, nebo zavolejte a vezměte si s sebou.</p>
+      <div class="cta"><a class="btn" href="#menu">Dnešní menu</a><a class="btn btn--ol" href="tel:000000000">Objednat s sebou</a></div>
+    </div>
+    <div class="menu" id="menu">
+      <div class="stamp">polévka<br>v ceně</div>
+      <h3>Denní menu</h3>
+      <p class="day">dnes · 11:00–14:30</p>
+      <div class="m"><span>Gulášová polévka<small>s chlebem</small></span><b>v ceně</b></div>
+      <div class="m"><span>Svíčková na smetaně<small>houskový knedlík</small></span><b>169 Kč</b></div>
+      <div class="m"><span>Kuřecí řízek<small>bramborová kaše, okurkový salát</small></span><b>149 Kč</b></div>
+      <div class="m"><span>Zeleninové rizoto<small>parmazán, rukola</small></span><b>139 Kč</b></div>
+      <div class="tot"><span>Menu s polévkou od</span><span>139 Kč</span></div>
+    </div>
+  </div>
+</div>
+<section class="alt"><div class="wrap">
+  <h2>Co si u nás <span style="color:var(--br)">dáte</span></h2>
+  <div class="food">
+    <div class="dish"><i></i><div><b>Klasika</b><small>svíčková, guláš, řízek</small></div></div>
+    <div class="dish"><i></i><div><b>Lehčí varianta</b><small>saláty, rizota, zelenina</small></div></div>
+    <div class="dish"><i></i><div><b>Sladká tečka</b><small>domácí koláče a štrúdl</small></div></div>
+  </div>
+</div></section>
+<section id="kde"><div class="wrap">
+  <h2>Kde nás najdete</h2>
+  <div class="grid">
+    <div class="box"><h3>Otevírací doba</h3><p><b>Po–Pá</b> 10:30–15:00<br><b>So–Ne</b> zavřeno<br>svátky dle oznámení</p></div>
+    <div class="box"><h3>Adresa</h3><p>Ukázková 3<br>301 00 Plzeň<br>parkování před budovou</p></div>
+    <div class="box"><h3>Objednávky</h3><p><b>000 000 000</b><br>bistro@ukazka-umlyna.cz<br>rozvoz firmám po domluvě</p></div>
+  </div>
+</div></section>
+<footer><div class="wrap">© Bistro U Mlýna · fiktivní firma, ukázkový koncept webu od GoroDigital</div></footer>
+<script>if(window.self!==window.top)document.documentElement.classList.add('in-frame')</script>
+</body>
+</html>
