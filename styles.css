@@ -4,8 +4,8 @@
   --ink:#0a0a0a;
   --muted:#666660;
   --line:#e3e2db;
-  --hl:#b690ff;          /* highlighter violet: always used as a background behind dark text */
-  --hl-soft:#efe5ff;
+  --hl:#9060f8;          /* highlighter violet: always used as a background behind dark text */
+  --hl-soft:#e4d8fe;
   --radius:16px;
   --display:"Bricolage Grotesque","Inter Tight",system-ui,sans-serif;
   --sans:"Inter Tight",system-ui,-apple-system,"Segoe UI",sans-serif;
