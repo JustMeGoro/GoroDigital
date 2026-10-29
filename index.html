@@ -88,12 +88,26 @@
         </ul>
       </div>
 
-      <a class="hero__visual reveal" href="demo/autoservis/" target="_blank" rel="noopener" aria-label="Otevřít ukázkový web pro autoservis">
-        <div class="browser">
-          <div class="browser__bar"><i></i><i></i><i></i><span>autoservis-rychlik.cz</span></div>
-          <div class="thumb"><iframe src="demo/autoservis/" title="" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe></div>
+      <!-- Přepínač webů. Nový web (třeba skutečný klient): přidejte tlačítko do .switch
+           (data-kind="client") a stejný iframe do .thumb, ve stejném pořadí. -->
+      <div class="hero__visual reveal" id="showcase">
+        <div class="switch" role="group" aria-label="Ukázky webů">
+          <button type="button" class="switch__btn is-on" aria-pressed="true" data-href="demo/autoservis/" data-host="autoservis-rychlik.cz" data-kind="demo">Autoservis</button>
+          <button type="button" class="switch__btn" aria-pressed="false" data-href="demo/salon/" data-host="salon-linie.cz" data-kind="demo">Kadeřnictví</button>
+          <button type="button" class="switch__btn" aria-pressed="false" data-href="demo/bistro/" data-host="bistro-u-mlyna.cz" data-kind="demo">Bistro</button>
         </div>
-      </a>
+        <a class="showcase__link" id="showcaseLink" href="demo/autoservis/" target="_blank" rel="noopener" aria-label="Otevřít vybraný ukázkový web">
+          <div class="browser">
+            <div class="browser__bar"><i></i><i></i><i></i><span id="showcaseHost">autoservis-rychlik.cz</span></div>
+            <div class="thumb">
+              <iframe class="is-on" src="demo/autoservis/" title="" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
+              <iframe src="demo/salon/" title="" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
+              <iframe src="demo/bistro/" title="" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
+            </div>
+          </div>
+        </a>
+        <p class="showcase__note" id="showcaseNote">Ukázka, vymyšlená firma. Kliknutím otevřete celý web ↗</p>
+      </div>
     </div>
   </section>
 

@@ -38,10 +38,28 @@ $$('.reveal').forEach(el => {
 
 // Live previews: scale the 1280x800 demo iframes to fit their frame
 const fitThumbs = () => $$('.thumb').forEach(t => {
-  $('iframe', t).style.transform = `scale(${t.clientWidth / 1280})`;
+  $$('iframe', t).forEach(f => { f.style.transform = `scale(${t.clientWidth / 1280})`; });
 });
 fitThumbs();
 addEventListener('resize', fitThumbs);
+
+// Hero showcase: buttons switch which site is shown. Buttons and iframes pair up by position.
+const showcase = $('#showcase');
+const pick = (i) => {
+  const btns = $$('.switch__btn', showcase);
+  const btn = btns[i];
+  btns.forEach((b, n) => {
+    b.classList.toggle('is-on', n === i);
+    b.setAttribute('aria-pressed', n === i);
+  });
+  $$('.thumb iframe', showcase).forEach((f, n) => f.classList.toggle('is-on', n === i));
+  $('#showcaseLink').href = btn.dataset.href;
+  $('#showcaseHost').textContent = btn.dataset.host;
+  $('#showcaseNote').textContent = btn.dataset.kind === 'client'
+    ? 'Skutečný web pro klienta. Kliknutím otevřete celý web ↗'
+    : 'Ukázka, vymyšlená firma. Kliknutím otevřete celý web ↗';
+};
+$$('.switch__btn', showcase).forEach((b, i) => b.addEventListener('click', () => pick(i)));
 
 // Mobile call bar steps aside while the contact section is on screen
 const callbar = $('#callbar');
