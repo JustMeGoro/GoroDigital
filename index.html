@@ -166,7 +166,7 @@
     <div class="wrap">
       <div class="head reveal">
         <h2>Takhle může vypadat <em>váš web.</em></h2>
-        <p class="sub">Pozor, nejde o skutečné zakázky. Všechny tři firmy jsou vymyšlené a weby jsem vytvořil jen jako ukázky toho, jak může váš web vypadat. Kliknutím si otevřete celý web, ne jen náhled. Skutečné reference tu přibudou po prvních spuštěných projektech.</p>
+        <p class="sub">Pozor, nejde o skutečné zakázky. Všechny tři firmy jsou vymyšlené a weby jsou jen ukázky toho, jak může váš web vypadat. Skutečné reference přibydou po prvních spuštěných projektech.</p>
       </div>
       <div class="work">
         <a href="demo/autoservis/" target="_blank" rel="noopener" class="work__item reveal" aria-label="Otevřít ukázku: Autoservis Rychlík">
@@ -174,21 +174,21 @@
             <div class="browser__bar"><i></i><i></i><i></i><span>autoservis-rychlik.cz</span></div>
             <div class="thumb"><iframe src="demo/autoservis/" title="" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe></div>
           </div>
-          <div class="work__meta"><div><h3>Autoservis Rychlík</h3><p>Autoservis: tlačítko pro volání, ceník prací, otevírací doba</p></div><span class="tag">Ukázka ↗</span></div>
+          <div class="work__meta"><div><h3>Autoservis Rychlík</h3><p>Autoservis: tlačítko pro volání, ceník prací, otevírací doba</p></div><span class="tag">Otevřít celý web ↗</span></div>
         </a>
         <a href="demo/salon/" target="_blank" rel="noopener" class="work__item reveal" aria-label="Otevřít ukázku: Salon Linie">
           <div class="browser">
             <div class="browser__bar"><i></i><i></i><i></i><span>salon-linie.cz</span></div>
             <div class="thumb"><iframe src="demo/salon/" title="" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe></div>
           </div>
-          <div class="work__meta"><div><h3>Salon Linie</h3><p>Kadeřnictví: ceník, rezervace, klidný vzhled</p></div><span class="tag">Ukázka ↗</span></div>
+          <div class="work__meta"><div><h3>Salon Linie</h3><p>Kadeřnictví: ceník, rezervace, klidný vzhled</p></div><span class="tag">Otevřít celý web ↗</span></div>
         </a>
         <a href="demo/bistro/" target="_blank" rel="noopener" class="work__item reveal" aria-label="Otevřít ukázku: Bistro U Mlýna">
           <div class="browser">
             <div class="browser__bar"><i></i><i></i><i></i><span>bistro-u-mlyna.cz</span></div>
             <div class="thumb"><iframe src="demo/bistro/" title="" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe></div>
           </div>
-          <div class="work__meta"><div><h3>Bistro U Mlýna</h3><p>Bistro: denní menu hned na první pohled</p></div><span class="tag">Ukázka ↗</span></div>
+          <div class="work__meta"><div><h3>Bistro U Mlýna</h3><p>Bistro: denní menu hned na první pohled</p></div><span class="tag">Otevřít celý web ↗</span></div>
         </a>
       </div>
     </div>
@@ -254,10 +254,10 @@
           <div class="field">
             <label for="f-type">Co vás zajímá?</label>
             <select id="f-type" name="type">
-              <option value="start">Start: web na jednu stránku (4 900 Kč)</option>
-              <option value="standard">Standard: web o 3–5 stránkách (8 900 Kč)</option>
-              <option value="care">Péče a provoz (390 Kč měsíčně)</option>
-              <option value="other">Něco jiného nebo zatím nevím</option>
+              <option value="start">Start · 4 900 Kč</option>
+              <option value="standard">Standard · 8 900 Kč</option>
+              <option value="care">Péče a provoz · 390 Kč/měs.</option>
+              <option value="other">Zatím nevím</option>
             </select>
           </div>
           <div class="field">
@@ -269,6 +269,13 @@
           <p class="reassure">Odpovím do 24 hodin. Žádný spam, žádný závazek.</p>
           <p class="form__note" id="formNote" role="status" aria-live="polite"></p>
         </form>
+        <div class="sent" id="sent" hidden tabindex="-1" role="status">
+          <span class="sent__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+          <h3>Zpráva je odeslána</h3>
+          <p id="sentWho"></p>
+          <p>Nemůžete čekat? <a href="tel:+420731061199">Zavolejte 731 061 199</a>.</p>
+          <button type="button" class="btn btn--outline-light" id="again">Poslat další zprávu</button>
+        </div>
       </div>
     </div>
   </section>

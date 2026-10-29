@@ -100,6 +100,20 @@ const setNote = (text, isError = false) => {
   note.textContent = text;
 };
 
+// After sending, the form is replaced by a clear confirmation
+const sent = $('#sent');
+const showSent = (how) => {
+  $('#sentWho').textContent = how ? `Ozvu se vám do 24 hodin na ${how}.` : 'Ozvu se vám do 24 hodin.';
+  form.hidden = true;
+  sent.hidden = false;
+  sent.focus();
+};
+$('#again').addEventListener('click', () => {
+  sent.hidden = true;
+  form.hidden = false;
+  form.elements.name.focus();
+});
+
 const failureNote = () => {
   const mail = Object.assign(document.createElement('a'), { href: `mailto:${MAIL}`, textContent: MAIL });
   const tel = Object.assign(document.createElement('a'), { href: `tel:${PHONE.href}`, textContent: PHONE.text });
@@ -117,13 +131,14 @@ form.addEventListener('submit', async (e) => {
   }
 
   // Honeypot: a hidden field only bots fill in. Pretend it worked, send nothing.
+  const val = (n) => form.elements[n].value.trim();
+  const how = val('email') || val('phone');
   if (form.elements.company_url.value) {
     form.reset();
-    setNote('Díky! Zpráva je odeslána, ozvu se vám do 24 hodin.');
+    showSent(how);
     return;
   }
 
-  const val = (n) => form.elements[n].value.trim();
   const plan = form.elements.type.selectedOptions[0].text;
   const payload = {
     access_key: WEB3FORMS_KEY,
@@ -150,13 +165,14 @@ form.addEventListener('submit', async (e) => {
     const json = await res.json();
     if (!json.success) throw new Error(json.message);
     form.reset();
-    setNote('Díky! Zpráva je odeslána, ozvu se vám do 24 hodin.');
+    setNote('');
+    showSent(how);
   } catch {
     failureNote();
+    note.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   } finally {
     clearTimeout(timer);
     submitBtn.disabled = false;
-    note.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 });
 
