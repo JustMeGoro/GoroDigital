@@ -103,7 +103,9 @@ h2{font-family:var(--display);font-size:clamp(2.1rem,4.4vw,3.6rem);line-height:1
 .plan ul{margin:28px 0 34px;display:grid;gap:12px;font-size:1rem;flex:1;padding-top:26px;border-top:1.5px dashed #9b9a90}
 .plan li::before{content:"";display:inline-block;width:18px;height:18px;margin-right:10px;border-radius:5px;background:var(--hl) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m4 8.5 2.5 2.5L12 5.5' fill='none' stroke='%230a0a0a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat;border:1.5px solid var(--ink);vertical-align:-3px}
 .badge{position:absolute;top:-15px;left:28px;background:var(--hl);color:var(--ink);border:2px solid var(--ink);font-size:.78rem;font-weight:800;padding:5px 13px;border-radius:8px;text-transform:uppercase;letter-spacing:.06em}
-.addon{margin-top:26px;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr) auto;gap:20px 40px;align-items:center;background:#fff;border:2px dashed var(--ink);border-radius:var(--radius);padding:26px 32px}
+.payment{margin-top:26px;max-width:70ch;font-size:1.02rem}
+.payment strong{font-weight:800}
+.addon{margin-top:18px;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr) auto;gap:20px 40px;align-items:center;background:#fff;border:2px dashed var(--ink);border-radius:var(--radius);padding:26px 32px}
 .addon h3{font-family:var(--display);font-size:1.35rem;letter-spacing:-.04em;font-weight:800}
 .addon__title p{color:var(--muted);font-size:.9rem;margin-top:2px}
 .addon__text{font-size:1rem}
