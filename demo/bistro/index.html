@@ -4,125 +4,340 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Bistro U Mlýna – ukázkový koncept</title>
+<title>Bistro U Mlýna – denní menu a otevírací doba (ukázkový koncept)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Young+Serif&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f3ead9;--ink:#2b1d12;--mu:#7a6a58;--gr:#3f6b4a;--paper:#fffaf0;--line:#dccfb6;--br:#9a5b2c}
+:root{
+  --paper:#f3e8d0;      /* page, warm newsprint */
+  --sheet:#fffaf0;      /* the menu sheet */
+  --ink:#2a1a14;
+  --mu:#5e4a3d;
+  --tomato:#b43720;     /* prices, active day */
+  --herb:#35572a;       /* soup, call */
+  --butter:#f4d98a;     /* open state, extras band */
+  --beet:#4a1d33;       /* contact band */
+  --beet-tx:#7a2748;    /* allergen codes */
+  --cream:#fff6e4;
+  --rule:#d9c7a3;
+  --focus:#2a1a14;
+  --display:'Young Serif',Georgia,'Times New Roman',serif;
+  --text:'Figtree',system-ui,sans-serif;
+}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
-a{color:inherit;text-decoration:none}
-.in-frame .demo-tag{position:fixed;right:16px;bottom:16px;z-index:60;background:#111;color:#fff;font:500 12px/1 system-ui,sans-serif;padding:9px 14px;border-radius:99px;box-shadow:0 8px 24px rgba(0,0,0,.35)}
-.demo-tag a{font-weight:700;text-decoration:underline}
+html{scroll-behavior:smooth;scrollbar-color:var(--tomato) var(--paper)}
+body{font-family:var(--text);font-size:1.0625rem;background:var(--paper);color:var(--ink);line-height:1.5;padding-bottom:96px}
+::selection{background:var(--butter);color:var(--ink)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+.demo-tag{background:#111;color:#fff;font:500 12px/1.4 system-ui,sans-serif;padding:14px 16px 100px;text-align:center}
+.demo-tag a{font-weight:700;text-decoration:underline;display:inline-block;padding:14px 6px}
+.demo-tag :focus-visible{outline-color:#fff}
 .in-frame .demo-tag{display:none}
-.wrap{width:min(1160px,100% - 48px);margin-inline:auto}
-header.top{display:flex;flex-direction:column;align-items:center;gap:12px;padding:26px 0 6px}
-header.top .logo{font-size:2.3rem}
-body{padding-bottom:96px}
-.dock{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:50;display:flex;gap:4px;background:var(--ink);padding:7px;border-radius:99px;box-shadow:0 20px 50px -14px rgba(43,29,18,.65)}
-.dock a{color:#f3ead9;padding:12px 20px;border-radius:99px;font-weight:700;font-size:.95rem;white-space:nowrap}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+
+/* Header: centered name, no top bar */
+header.top{text-align:center;padding:14px 0 12px}
+h1{font:400 clamp(2.2rem,5vw,3.3rem)/1 var(--display);letter-spacing:-.01em;text-wrap:balance}
+h1 span{color:var(--tomato)}
+header.top p{margin-top:4px;color:var(--mu);font-weight:500}
+
+/* First screen: the menu is the page */
+.stage{display:grid;grid-template-columns:minmax(0,1fr) 336px;grid-template-areas:"sheet status" "sheet contact";grid-template-rows:auto 1fr;gap:18px;padding-bottom:64px}
+.sheet{grid-area:sheet;position:relative;background:var(--sheet);border:1.5px solid var(--ink);border-radius:6px;padding:20px clamp(18px,3vw,36px) 16px}
+.sheet::before{content:"";position:absolute;inset:6px;border:1px solid var(--rule);border-radius:3px;pointer-events:none}
+.sheet>*{position:relative}
+
+.tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.tab{font:inherit;color:var(--ink);background:transparent;border:1.5px solid var(--ink);border-radius:10px;min-height:54px;padding:6px 4px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.15}
+.tab b{font:400 1.25rem/1.1 var(--display)}
+.tab small{font-size:.875rem;color:var(--mu)}
+.tab:hover{background:var(--butter)}
+.tab[aria-selected="true"]{background:var(--tomato);border-color:var(--tomato);color:var(--cream)}
+.tab[aria-selected="true"] small{color:var(--cream)}
+.tab .today{display:none}
+.tab.is-today b::after{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--herb);margin-left:6px;vertical-align:middle}
+.tab.is-today[aria-selected="true"] b::after{background:var(--butter)}
+
+.day-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 20px;margin:14px 0 10px}
+h2{font:400 clamp(1.6rem,3.2vw,2.3rem)/1.1 var(--display);text-wrap:balance}
+.day-head p{color:var(--mu);font-size:.95rem}
+.panel{animation:rise .35s cubic-bezier(.16,1,.3,1)}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}}
+
+.soup{display:flex;align-items:baseline;flex-wrap:wrap;gap:2px 14px;background:var(--herb);color:var(--cream);border-radius:8px;padding:10px 18px}
+.soup .lab{font:400 1.05rem var(--display);color:var(--butter)}
+.soup .nm{font:400 1.45rem/1.2 var(--display)}
+.soup .mt{margin-left:auto;font-size:1rem}
+.soup .mt i{font-style:normal;color:var(--butter);font-weight:700}
+
+.mains{list-style:none}
+.dish{padding:12px 0 11px;border-bottom:1px solid var(--rule)}
+.dish:last-child{border-bottom:0}
+.dish .top{display:flex;align-items:baseline;gap:10px}
+.dish .nm{font:400 1.5rem/1.2 var(--display)}
+.dish .lead{flex:1;min-width:16px;border-bottom:2px dotted var(--rule);transform:translateY(-4px)}
+.dish .pr{font:700 1.45rem/1 var(--text);color:var(--tomato);font-variant-numeric:tabular-nums;white-space:nowrap}
+.dish .sub{display:flex;flex-wrap:wrap;justify-content:space-between;gap:0 18px;margin-top:2px}
+.dish .ds{color:var(--mu);font-size:1.0625rem}
+.dish .mt{display:flex;gap:0 14px;font-size:1rem;font-variant-numeric:tabular-nums}
+.dish .mt .al{color:var(--beet-tx);font-weight:700}
+.legend{margin-top:6px;padding-top:8px;border-top:1.5px solid var(--ink);color:var(--mu);font-size:.9375rem}
+.legend b{color:var(--beet-tx)}
+
+/* Status + contact */
+.status{grid-area:status;background:var(--butter);border:1.5px solid var(--ink);border-radius:6px;padding:20px 22px}
+.status .st{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:1.05rem}
+.status .st i{width:12px;height:12px;border-radius:50%;background:var(--herb);flex:none}
+.status .big{font:400 clamp(1.7rem,3vw,2.2rem)/1.1 var(--display);margin-top:6px;text-wrap:balance}
+.status .hrs{margin-top:8px;font-size:1rem}
+.status.is-closed{background:var(--beet);color:var(--cream)}
+.status.is-closed .st i{background:#ff9a7a}
+.contact{grid-area:contact;background:var(--herb);color:var(--cream);border:1.5px solid var(--ink);border-radius:6px;padding:20px 22px;display:flex;flex-direction:column;gap:2px}
+.contact h2{font-size:1.5rem;margin-bottom:6px;color:var(--butter)}
+.contact address{font-style:normal}
+.tel{display:inline-flex;align-items:center;min-height:48px;font:400 1.9rem/1 var(--display);text-decoration:none;color:var(--cream);margin-top:8px}
+.tel:hover{color:var(--butter)}
+.contact a:not(.tel){display:inline-flex;align-items:center;min-height:44px;overflow-wrap:anywhere}
+.contact :focus-visible,.dark :focus-visible,.dock :focus-visible{outline-color:var(--butter)}
+.contact .note{font-size:.95rem;opacity:.92}
+
+/* Dock: floating bottom nav */
+.dock{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:50;display:flex;gap:4px;background:var(--ink);padding:6px;border-radius:99px;box-shadow:0 14px 34px -12px rgba(42,26,20,.55);max-width:calc(100% - 20px)}
+.dock a{color:var(--cream);text-decoration:none;padding:0 18px;min-height:46px;display:inline-flex;align-items:center;border-radius:99px;font-weight:700;font-size:.95rem;white-space:nowrap}
 .dock a:hover{background:rgba(255,255,255,.14)}
-.dock .dockcall{background:var(--gr);color:#fff}
-.logo{font:700 1.6rem Fraunces;letter-spacing:-.02em}
-.logo span{color:var(--br)}
-nav{display:flex;gap:30px;color:var(--mu);font-weight:500}
-nav a:hover{color:var(--ink)}
-.open{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--ink);border-radius:99px;padding:9px 16px;font-weight:700;font-size:.9rem}
-.open i{width:9px;height:9px;border-radius:50%;background:#2fbf5a}
-.hero{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,172px);gap:18px;padding:20px 0 80px}
-.t{border:2px solid var(--ink);border-radius:22px;padding:28px;position:relative;overflow:hidden}
-.t1{grid-column:1/3;grid-row:1/4;background:var(--paper);display:flex;flex-direction:column;justify-content:center;padding:40px}
-.t2{grid-column:3/5;grid-row:1/3;background:var(--paper);box-shadow:8px 8px 0 var(--gr);padding:26px 30px}
-.t3{grid-column:3;grid-row:3;background:var(--gr);color:#fff;display:flex;flex-direction:column;justify-content:space-between}
-.t3 b{font:700 1.7rem/1.1 Fraunces;display:block}
-.t3 small{opacity:.85;display:block;margin-top:4px;font-size:.85rem}
-.t4{grid-column:4;grid-row:3;background:linear-gradient(135deg,#6b4226,#c68a4e 70%,#e9b877);color:#fff;display:flex;flex-direction:column;justify-content:flex-end}
-.t4 b{font:700 1.5rem/1.1 Fraunces}
-.t4 small{opacity:.9}
-.t3 .dotl{display:inline-flex;align-items:center;gap:8px;font-weight:700}
-.t3 .dotl i{width:10px;height:10px;border-radius:50%;background:#7dffb0;box-shadow:0 0 0 4px rgba(125,255,176,.25)}
-.kick{display:inline-block;font:700 .8rem 'DM Sans';letter-spacing:.14em;text-transform:uppercase;color:var(--gr);margin-bottom:20px}
-h1{font:700 clamp(2.8rem,5.4vw,4.8rem)/.98 Fraunces;letter-spacing:-.035em}
-h1 em{font-style:normal;color:var(--br)}
-.lead{margin-top:18px;font-size:1.1rem;color:var(--mu);max-width:420px}
-.cta{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}
-.btn{display:inline-block;padding:15px 26px;border-radius:12px;font-weight:700;background:var(--ink);color:#fff}
-.btn:hover{background:var(--gr)}
-.btn--ol{background:transparent;color:var(--ink);border:2px solid var(--ink)}
-.btn--ol:hover{background:var(--ink);color:#fff}
-.menu{position:relative}
-.menu h3{font:700 1.5rem Fraunces;letter-spacing:-.02em}
-.menu .day{color:var(--mu);font-size:.9rem;margin:0 0 10px}
-.m{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-top:1.5px dashed var(--line)}
-.m span small{display:block;color:var(--mu);font-size:.88rem}
-.m b{white-space:nowrap}
-.stamp{position:absolute;right:20px;top:18px;background:var(--gr);color:#fff;border-radius:50%;width:78px;height:78px;display:grid;place-items:center;text-align:center;font:700 .76rem/1.15 'DM Sans';transform:rotate(12deg);border:3px solid var(--ink)}
-section{padding:90px 0}
-.alt{background:var(--paper);border-block:2px solid var(--ink)}
-h2{font:700 clamp(2rem,4vw,3rem)/1 Fraunces;letter-spacing:-.03em;margin-bottom:34px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.box{background:var(--bg);border:2px solid var(--ink);border-radius:16px;padding:28px}
-.box h3{font:700 1.3rem Fraunces;margin-bottom:10px;color:var(--br)}
-.box p{color:var(--mu)} .box b{color:var(--ink)}
-.food{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.dish{border:2px solid var(--ink);border-radius:16px;overflow:hidden;background:#fff}
-.dish i{display:block;aspect-ratio:4/3;background:linear-gradient(135deg,#6b4226,#c68a4e 70%,#e9b877)}
-.dish:nth-child(2) i{background:linear-gradient(135deg,#3f6b4a,#8bb08a 70%,#d4e4c4)}
-.dish:nth-child(3) i{background:linear-gradient(135deg,#a8452c,#e08a5c 70%,#f6cfa6)}
-.dish div{padding:18px 20px}.dish b{font:700 1.15rem Fraunces;display:block}.dish small{color:var(--mu)}
-footer{padding:32px 0;color:var(--mu);font-size:.9rem}
-@media(max-width:860px){.dock{max-width:calc(100% - 20px)}.dock a{padding:11px 13px;font-size:.84rem}.dock a:nth-child(2){display:none}.hero{grid-template-columns:1fr 1fr;grid-template-rows:auto}.t1,.t2{grid-column:1/3;grid-row:auto}.t3,.t4{grid-column:auto;grid-row:auto;min-height:150px}.grid,.food{grid-template-columns:1fr}}
+.dock .call{background:var(--tomato)}
+.dock .call:hover{background:#8f2814}
+
+/* Extras band */
+.extras{background:var(--butter);border-block:1.5px solid var(--ink);padding:72px 0}
+.extras .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,5vw,72px);align-items:start}
+.extras h2{font-size:clamp(1.9rem,3.6vw,2.6rem)}
+.extras .intro{margin-top:14px;max-width:34ch}
+.extras dl>div{padding:16px 0;border-bottom:1.5px dotted var(--ink)}
+.extras dl>div:first-child{padding-top:0}
+.extras dl>div:last-child{border-bottom:0;padding-bottom:0}
+.extras dt{font:400 1.45rem/1.2 var(--display)}
+.extras dd{margin-top:3px;max-width:52ch}
+
+/* Where + hours */
+.dark{background:var(--beet);color:var(--cream);padding:72px 0 40px}
+.dark .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,5vw,72px)}
+.dark h2{font-size:clamp(1.9rem,3.6vw,2.6rem);color:var(--butter)}
+.dark .where{margin-top:16px;font-size:1.15rem}
+.dark .where a{display:inline-flex;align-items:center;min-height:44px}
+.hours{width:100%;border-collapse:collapse;font-size:1.15rem}
+.hours caption{text-align:left;font:400 1.45rem var(--display);padding-bottom:10px}
+.hours th,.hours td{text-align:left;padding:12px 0;border-bottom:1px solid rgba(255,246,228,.28);font-weight:400}
+.hours td{text-align:right;font-variant-numeric:tabular-nums}
+.hours tr.now th,.hours tr.now td{color:var(--butter);font-weight:700}
+.hours tr:last-child th,.hours tr:last-child td{border-bottom:0}
+footer{margin-top:56px;border-top:1px solid rgba(255,246,228,.28);padding-top:20px;font-size:.9375rem;opacity:.9}
+
+@media(max-width:940px){
+  .stage{grid-template-columns:minmax(0,1fr);grid-template-areas:"status" "sheet" "contact";grid-template-rows:auto}
+  .extras .wrap,.dark .wrap{grid-template-columns:minmax(0,1fr)}
+  .extras,.dark{padding-top:56px}
+}
+@media(max-width:560px){
+  body{font-size:1.0625rem}
+  .wrap{width:calc(100% - 28px)}
+  header.top{padding:16px 0 12px}
+  .status{padding:14px 16px}
+  .status .big{font-size:1.5rem}
+  .sheet{padding:18px 14px 16px}
+  .sheet::before{inset:4px}
+  .tabs{gap:5px}
+  .tab{min-height:56px;border-radius:8px}
+  .tab b{font-size:1.1rem}
+  .tab small{font-size:.8125rem}
+  .soup .mt{margin-left:0;width:100%}
+  .dish .nm{font-size:1.2rem}
+  .dish .pr{font-size:1.15rem}
+  .dock a{padding:0 13px;font-size:.9rem}
+  .dock a.opt{display:none}
+  .tel{font-size:1.7rem}
+}
+@media(max-width:380px){.dock{gap:2px;padding:5px}.dock a{padding:0 11px;font-size:.84rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.panel{animation:none}}
 </style>
 </head>
 <body>
 <header class="top">
-  <a class="logo" href="#">Bistro <span>U Mlýna</span></a>
-  <span class="open"><i></i> Dnes otevřeno do 15:00</span>
+  <h1>Bistro <span>U Mlýna</span></h1>
+  <p>Doma vařené obědy v Plzni</p>
 </header>
+
+<main>
+<div class="wrap stage">
+  <section class="sheet" id="menu" aria-labelledby="menu-h">
+    <div class="tabs" role="tablist" aria-label="Den v týdnu" id="tabs"></div>
+    <div class="panel" id="panel" role="tabpanel" tabindex="0" aria-labelledby="menu-h">
+      <div class="day-head"><h2 id="menu-h">Denní menu</h2><p id="menu-note">Polévka v ceně jídla · ceny v Kč</p></div>
+      <div id="menu-body"></div>
+    </div>
+    <p class="legend"><b>Alergeny:</b> 1 lepek · 3 vejce · 4 ryby · 7 mléko · 9 celer · 10 hořčice · 12 siřičitany. Gramáže jsou orientační (maso + příloha).</p>
+  </section>
+
+  <div class="status" id="status" role="status" aria-live="polite">
+    <span class="st"><i></i><span id="st-label">Dnes otevřeno</span></span>
+    <p class="big" id="st-big">Po–Pá 10:30–15:00</p>
+    <p class="hrs">Po–Pá 10:30–15:00 · So a Ne zavřeno</p>
+  </div>
+
+  <aside class="contact" id="kontakt" aria-labelledby="kontakt-h">
+    <h2 id="kontakt-h">Zastavte se</h2>
+    <address>Ukázková 3<br>301 00 Plzeň</address>
+    <a class="tel" href="tel:000000000" aria-label="Zavolat na číslo 000 000 000">000 000 000</a>
+    <a href="mailto:bistro@ukazka-umlyna.cz">bistro@ukazka-umlyna.cz</a>
+    <p class="note">Jídlo s sebou objednejte telefonem.</p>
+  </aside>
+</div>
+
+<section class="extras" id="mimo" aria-labelledby="mimo-h"><div class="wrap">
+  <div>
+    <h2 id="mimo-h">Mimo denní menu</h2>
+    <p class="intro">Kromě oběda u nás koupíte i sladké a jídlo na cestu.</p>
+  </div>
+  <dl>
+    <div><dt>Domácí koláče a štrúdl</dt><dd>Pečeme čerstvé, k obědu i na odnos.</dd></div>
+    <div><dt>Jídlo s sebou</dt><dd>Oběd zabalíme do krabičky. Objednejte telefonem a vyzvedněte na pultu.</dd></div>
+    <div><dt>Rozvoz firmám</dt><dd>Po domluvě pro kanceláře v okolí.</dd></div>
+  </dl>
+</div></section>
+
+<section class="dark" id="kde" aria-labelledby="kde-h"><div class="wrap">
+  <div>
+    <h2 id="kde-h">Kde nás najdete</h2>
+    <p class="where">Ukázková 3, 301 00 Plzeň<br>Parkování před budovou.<br><a href="tel:000000000">000 000 000</a><br><a href="mailto:bistro@ukazka-umlyna.cz">bistro@ukazka-umlyna.cz</a></p>
+  </div>
+  <table class="hours" id="hours">
+    <caption>Otevírací doba</caption>
+    <tbody>
+      <tr data-d="1,2,3,4,5"><th scope="row">Pondělí–Pátek</th><td>10:30–15:00</td></tr>
+      <tr data-d="6"><th scope="row">Sobota</th><td>zavřeno</td></tr>
+      <tr data-d="0"><th scope="row">Neděle</th><td>zavřeno</td></tr>
+      <tr><th scope="row">Státní svátky</th><td>dle oznámení</td></tr>
+    </tbody>
+  </table>
+  <footer style="grid-column:1/-1">© Bistro U Mlýna · fiktivní firma, ukázkový koncept webu od GoroDigital. Jídla, ceny a kontakty jsou ukázková data.</footer>
+</div></section>
+</main>
+
 <nav class="dock" aria-label="Navigace">
   <a href="#menu">Denní menu</a>
-  <a href="#co">Co si dáte</a>
-  <a href="#kde">Kde nás najdete</a>
-  <a class="dockcall" href="tel:000000000">Zavolat</a>
+  <a class="opt" href="#mimo">Mimo menu</a>
+  <a href="#kde">Otevírací doba</a>
+  <a class="call" href="tel:000000000">Zavolat</a>
 </nav>
-<div class="wrap hero">
-  <div class="t t1">
-    <span class="kick">Bistro · Plzeň</span>
-    <h1>Doma vařené.<br><em>Každý den</em> čerstvé.</h1>
-    <p class="lead">Denní menu z místních surovin, polévka v ceně a oběd hotový za pár minut.</p>
-    <div class="cta"><a class="btn" href="#menu">Dnešní menu</a><a class="btn btn--ol" href="tel:000000000">Objednat s sebou</a></div>
-  </div>
-  <div class="t t2 menu" id="menu">
-    <div class="stamp">polévka<br>v ceně</div>
-    <h3>Denní menu</h3>
-    <p class="day">dnes · 11:00–14:30</p>
-    <div class="m"><span>Svíčková na smetaně<small>houskový knedlík</small></span><b>169 Kč</b></div>
-    <div class="m"><span>Kuřecí řízek<small>bramborová kaše</small></span><b>149 Kč</b></div>
-    <div class="m"><span>Zeleninové rizoto<small>parmazán, rukola</small></span><b>139 Kč</b></div>
-  </div>
-  <div class="t t3"><span class="dotl"><i></i> Dnes otevřeno</span><div><b>do 15:00</b><small>Po–Pá 10:30–15:00</small></div></div>
-  <div class="t t4"><b>Domácí koláče</b><small>každý den čerstvé</small></div>
-</div>
-<section class="alt" id="co"><div class="wrap">
-  <h2>Co si u nás <span style="color:var(--br)">dáte</span></h2>
-  <div class="food">
-    <div class="dish"><i></i><div><b>Klasika</b><small>svíčková, guláš, řízek</small></div></div>
-    <div class="dish"><i></i><div><b>Lehčí varianta</b><small>saláty, rizota, zelenina</small></div></div>
-    <div class="dish"><i></i><div><b>Sladká tečka</b><small>domácí koláče a štrúdl</small></div></div>
-  </div>
-</div></section>
-<section id="kde"><div class="wrap">
-  <h2>Kde nás najdete</h2>
-  <div class="grid">
-    <div class="box"><h3>Otevírací doba</h3><p><b>Po–Pá</b> 10:30–15:00<br><b>So–Ne</b> zavřeno<br>svátky dle oznámení</p></div>
-    <div class="box"><h3>Adresa</h3><p>Ukázková 3<br>301 00 Plzeň<br>parkování před budovou</p></div>
-    <div class="box"><h3>Objednávky</h3><p><b>000 000 000</b><br>bistro@ukazka-umlyna.cz<br>rozvoz firmám po domluvě</p></div>
-  </div>
-</div></section>
-<footer><div class="wrap">© Bistro U Mlýna · fiktivní firma, ukázkový koncept webu od GoroDigital</div></footer>
 <div class="demo-tag">Ukázkový koncept · fiktivní firma · <a href="../../">GoroDigital ↗</a></div>
 <script>if(window.self!==window.top)document.documentElement.classList.add('in-frame')</script>
+<script>
+(function(){
+  // Sample data: n name, d description, g grams, a allergens, p price (Kč)
+  var DAYS=[
+   {k:'Po',n:'Pondělí',soup:{n:'Kulajda s vejcem a koprem',g:'0,3 l',a:'1, 3, 7, 9'},mains:[
+     {n:'Svíčková na smetaně',d:'houskový knedlík, brusinky, šlehačka',g:'150 g + 200 g',a:'1, 3, 7, 9',p:169},
+     {n:'Kuřecí řízek',d:'bramborová kaše, okurkový salát',g:'150 g + 200 g',a:'1, 3, 7',p:149},
+     {n:'Zeleninové rizoto',d:'parmazán, rukola, pečená dýně',g:'350 g',a:'7, 9',p:139},
+     {n:'Vepřové výpečky',d:'dušené zelí, bramborový knedlík',g:'150 g + 200 g',a:'1, 3',p:159}]},
+   {k:'Út',n:'Úterý',soup:{n:'Gulášová polévka',g:'0,3 l',a:'1, 9'},mains:[
+     {n:'Hovězí guláš',d:'houskový knedlík, červená cibule',g:'150 g + 200 g',a:'1, 3, 9',p:165},
+     {n:'Smažený sýr',d:'vařené brambory, tatarská omáčka',g:'120 g + 200 g',a:'1, 3, 7, 10',p:149},
+     {n:'Těstoviny se špenátem',d:'kuřecí maso, smetana, parmazán',g:'400 g',a:'1, 3, 7',p:145},
+     {n:'Pečené vepřové koleno',d:'hořčice, křen, černý chléb',g:'350 g',a:'1, 10, 12',p:189}]},
+   {k:'St',n:'Středa',soup:{n:'Česnečka s krutony',g:'0,3 l',a:'1, 3, 9'},mains:[
+     {n:'Vepřová pečeně',d:'dušené zelí, houskový knedlík',g:'150 g + 200 g',a:'1, 3',p:155},
+     {n:'Čočka na kyselo',d:'volské oko, kyselá okurka',g:'350 g + 1 ks',a:'1, 3, 10, 12',p:139},
+     {n:'Pstruh na másle',d:'petrželové brambory, citron',g:'250 g + 200 g',a:'4, 7',p:189}]},
+   {k:'Čt',n:'Čtvrtek',soup:{n:'Zelňačka s uzeninou',g:'0,3 l',a:'1, 9'},mains:[
+     {n:'Hovězí roštěnka na cibulce',d:'americké brambory, smetanový křen',g:'150 g + 200 g',a:'1, 7, 10',p:189},
+     {n:'Kuřecí kari',d:'jasmínová rýže, koriandr',g:'150 g + 200 g',a:'7, 9',p:149},
+     {n:'Bramborové knedlíky s uzeným',d:'dušené zelí, cibulka',g:'400 g',a:'1, 3',p:159},
+     {n:'Salát s grilovaným sýrem',d:'listový mix, ořechy, medová zálivka',g:'300 g',a:'7, 8, 10',p:145}]},
+   {k:'Pá',n:'Pátek',soup:{n:'Bramboračka s houbami',g:'0,3 l',a:'1, 7, 9'},mains:[
+     {n:'Smažené rybí filé',d:'bramborový salát, citron',g:'150 g + 200 g',a:'1, 3, 4, 10',p:169},
+     {n:'Vepřový řízek',d:'vařené brambory, máslo, petržel',g:'150 g + 200 g',a:'1, 3, 7',p:155},
+     {n:'Houbové rizoto',d:'smetana, parmazán, pažitka',g:'350 g',a:'7, 9',p:145}]}
+  ];
+  var tabs=document.getElementById('tabs'),panel=document.getElementById('panel');
+  var body=document.getElementById('menu-body'),note=document.getElementById('menu-note'),h=document.getElementById('menu-h');
+  var fmt=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Prague',year:'numeric',month:'numeric',day:'numeric',hour:'numeric',minute:'numeric',hourCycle:'h23'});
+  function now(){
+    var o={};fmt.formatToParts(new Date()).forEach(function(p){o[p.type]=+p.value});
+    var u=Date.UTC(o.year,o.month-1,o.day);
+    return {u:u,dow:new Date(u).getUTCDay(),min:o.hour*60+o.minute};
+  }
+  var DAY=86400000,csDate=new Intl.DateTimeFormat('cs-CZ',{timeZone:'UTC',day:'numeric',month:'long'});
+  var t=now(),weekday=t.dow>=1&&t.dow<=5;
+  var monday=weekday?t.u-(t.dow-1)*DAY:t.u+((8-t.dow)%7||1)*DAY;
+  var todayIdx=weekday?t.dow-1:0,sel=todayIdx;
+  function dateOf(i){return new Date(monday+i*DAY)}
+  function short(i){var d=dateOf(i);return d.getUTCDate()+'. '+(d.getUTCMonth()+1)+'.'}
+
+  DAYS.forEach(function(d,i){
+    var b=document.createElement('button');
+    b.type='button';b.className='tab'+(weekday&&i===todayIdx?' is-today':'');
+    b.id='tab-'+i;b.setAttribute('role','tab');b.setAttribute('aria-controls','panel');
+    b.setAttribute('aria-label',d.n+' '+csDate.format(dateOf(i))+(weekday&&i===todayIdx?' (dnes)':''));
+    b.innerHTML='<b>'+d.k+'</b><small>'+short(i)+'</small>';
+    b.addEventListener('click',function(){select(i,false)});
+    b.addEventListener('keydown',function(e){
+      var n=i;
+      if(e.key==='ArrowRight'||e.key==='ArrowDown')n=(i+1)%5;
+      else if(e.key==='ArrowLeft'||e.key==='ArrowUp')n=(i+4)%5;
+      else if(e.key==='Home')n=0;else if(e.key==='End')n=4;else return;
+      e.preventDefault();select(n,true);
+    });
+    tabs.appendChild(b);
+  });
+
+  function esc(s){return s}
+  function select(i,focus){
+    sel=i;var d=DAYS[i];
+    [].forEach.call(tabs.children,function(b,j){
+      b.setAttribute('aria-selected',j===i?'true':'false');b.tabIndex=j===i?0:-1;
+    });
+    if(focus)tabs.children[i].focus();
+    panel.setAttribute('aria-labelledby','tab-'+i);
+    var lab=d.n+' '+csDate.format(dateOf(i));
+    h.textContent=lab;
+    var isToday=weekday&&i===todayIdx;
+    note.textContent=!weekday&&i===0?'Víkend zavřeno · menu na pondělí · ceny v Kč':(isToday?'Dnes · polévka v ceně jídla · ceny v Kč':'Polévka v ceně jídla · ceny v Kč');
+    var s=d.soup,html='<div class="soup"><span class="lab">Polévka</span><span class="nm">'+s.n+'</span><span class="mt">'+s.g+' · <i>A: '+s.a+'</i> · v ceně</span></div><ul class="mains">';
+    d.mains.forEach(function(m){
+      html+='<li class="dish"><div class="top"><span class="nm">'+m.n+'</span><span class="lead" aria-hidden="true"></span><span class="pr">'+m.p+'&nbsp;Kč</span></div><div class="sub"><p class="ds">'+m.d+'</p><p class="mt"><span>'+m.g+'</span><span class="al">A: '+m.a+'</span></p></div></li>';
+    });
+    body.innerHTML=html+'</ul>';
+    panel.style.animation='none';void panel.offsetWidth;panel.style.animation='';
+  }
+
+  // Open / closed from the real clock in Europe/Prague
+  var st=document.getElementById('status'),sl=document.getElementById('st-label'),sb=document.getElementById('st-big');
+  var OPEN=630,CLOSE=900;
+  function hm(m){var h=Math.floor(m/60),mm=m%60;return h+':'+(mm<10?'0':'')+mm}
+  function status(){
+    var n=now(),isW=n.dow>=1&&n.dow<=5,open=isW&&n.min>=OPEN&&n.min<CLOSE;
+    st.classList.toggle('is-closed',!open);
+    if(open){
+      var left=CLOSE-n.min;
+      sl.textContent='Dnes otevřeno';
+      sb.textContent='do 15:00'+(left<=60?' · zavíráme za '+left+' min':'');
+    }else{
+      sl.textContent=isW&&n.min<OPEN?'Teď zavřeno':(isW?'Dnes už zavřeno':'Dnes zavřeno');
+      var when;
+      if(isW&&n.min<OPEN)when='dnes v '+hm(OPEN);
+      else if(n.dow>=1&&n.dow<=4)when='zítra v '+hm(OPEN);
+      else when='v pondělí v '+hm(OPEN);
+      sb.textContent='Otevíráme '+when;
+    }
+    [].forEach.call(document.querySelectorAll('#hours tr[data-d]'),function(r){
+      r.classList.toggle('now',r.getAttribute('data-d').split(',').indexOf(String(n.dow))>-1);
+    });
+  }
+  select(sel,false);status();setInterval(status,30000);
+})();
+</script>
 </body>
 </html>
