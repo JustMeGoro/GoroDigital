@@ -2,7 +2,7 @@
 <html lang="cs">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>GoroDigital – weby pro řemeslníky a místní firmy</title>
   <meta name="description" content="GoroDigital vytváří rychlé, moderní a přehledné weby pro řemeslníky, autoservisy, kadeřnictví a místní firmy. Návrh, vývoj i správa na jednom místě.">
   <meta name="theme-color" content="#ffffff">
@@ -40,7 +40,7 @@
     "makesOffer": [
       { "@type": "Offer", "name": "Start – jednostránkový web", "price": "4900", "priceCurrency": "CZK" },
       { "@type": "Offer", "name": "Standard – vícestránkový web", "price": "8900", "priceCurrency": "CZK" },
-      { "@type": "Offer", "name": "Péče & Provoz (měsíčně)", "price": "390", "priceCurrency": "CZK" }
+      { "@type": "Offer", "name": "Péče a provoz (měsíčně)", "price": "390", "priceCurrency": "CZK" }
     ]
   }
   </script>
@@ -53,15 +53,15 @@
 <body>
 
 <header class="nav" id="nav">
-  <a href="#top" class="logo" aria-label="GoroDigital">Goro<span>Digital</span><i></i></a>
-  <nav class="nav__links" id="navLinks">
+  <a href="#top" class="logo" aria-label="GoroDigital, zpět na začátek">Goro<span>Digital</span><i></i></a>
+  <nav class="nav__links" id="navLinks" aria-label="Hlavní navigace">
     <a href="#cenik">Ceník</a>
     <a href="#postup">Postup</a>
     <a href="#prace">Práce</a>
     <a href="#o-mne">O mně</a>
   </nav>
-  <a href="#kontakt" class="btn btn--dark btn--sm nav__cta">Nezávazná poptávka</a>
-  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+  <a href="#kontakt" class="btn btn--dark btn--sm nav__cta">Napsat mi</a>
+  <button class="burger" id="burger" type="button" aria-label="Otevřít menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
 </header>
 
 <main id="top">
@@ -73,37 +73,24 @@
       <div class="hero__text">
         <p class="eyebrow reveal"><b class="dot"></b> Přijímám nové projekty</p>
         <h1 class="reveal">Svěřte web někomu, kdo to <em>myslí vážně.</em></h1>
-        <p class="lead reveal">Dělám weby pro řemeslníky, služby a místní firmy. Web na jednu stránku od 4&nbsp;900&nbsp;Kč, hotový do 5 dnů. Bez keců, bez prostředníků, bez práce na půl.</p>
+        <p class="lead reveal">Dělám weby pro řemeslníky, služby a místní firmy. Bez keců, bez prostředníků, bez práce na půl.</p>
         <div class="hero__actions reveal">
-          <a href="#cenik" class="btn btn--dark">Ukázat ceník <span class="arr">↓</span></a>
+          <a href="#cenik" class="btn btn--dark">Ukázat ceník <span class="arr" aria-hidden="true">↓</span></a>
           <a href="#kontakt" class="btn btn--ghost">Napsat mi</a>
         </div>
         <ul class="hero__facts reveal">
-          <li><strong>4 900 Kč</strong><small>web na jednu stránku<br>cena předem, bez příplatků</small></li>
-          <li><strong>3–7 dní</strong><small>od zadání po hotový web<br>podle balíčku</small></li>
+          <li><strong>4 900 Kč</strong><small>web na jednu stránku,<br>cena předem</small></li>
+          <li><strong>3–7 dní</strong><small>od zadání po hotový web,<br>podle balíčku</small></li>
           <li><strong>1 člověk</strong><small>píšete přímo mně,<br>žádní prostředníci</small></li>
         </ul>
       </div>
 
-      <div class="hero__visual reveal" aria-hidden="true">
-        <div class="browser browser--hero tilt">
-          <div class="browser__bar"><i></i><i></i><i></i><span>vasefirma.cz</span></div>
-          <div class="browser__body">
-            <div class="mock-nav"><b></b><span></span><span></span><span></span><em></em></div>
-            <div class="mock-hero">
-              <div>
-                <h4>Řemeslo,<br>kterému <u>věříte.</u></h4>
-                <p></p><p class="s"></p>
-                <div class="mock-btn"></div>
-              </div>
-              <div class="mock-img"></div>
-            </div>
-            <div class="mock-cards"><div></div><div></div><div></div></div>
-          </div>
+      <a class="hero__visual reveal" href="demo/autoservis/" target="_blank" rel="noopener" aria-label="Otevřít ukázkový web pro autoservis">
+        <div class="browser">
+          <div class="browser__bar"><i></i><i></i><i></i><span>autoservis-rychlik.cz</span></div>
+          <div class="thumb"><iframe src="demo/autoservis/" title="" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe></div>
         </div>
-        <div class="chip chip--a"><b>0</b> prostředníků</div>
-        <div class="chip chip--b"><span class="ok">✓</span> Cena předem</div>
-      </div>
+      </a>
     </div>
   </section>
 
@@ -111,33 +98,46 @@
   <section class="section section--tint" id="cenik">
     <div class="wrap">
       <div class="head reveal">
-        <p class="kicker">01 — Ceník</p>
         <h2>Férové ceny, <em>jasný rozsah.</em></h2>
         <p class="sub">Žádné „cena na dotaz“. Cena i obsah balíčku jsou tady, hned. Konzultace je zdarma a nezávazná.</p>
       </div>
       <div class="plans">
         <article class="plan reveal">
-          <h3>Start <span class="alt">(Vizitka)</span></h3>
+          <h3>Start</h3>
           <p class="plan__d">Pro řemeslníky, kadeřnictví a menší dílny.</p>
           <p class="price">4 900 <small>Kč</small></p>
-          <ul><li>Moderní jednostránkový web (One-Page)</li><li>100% responzivní zobrazení na mobilu</li><li>Tlačítko pro okamžité volání a navigaci</li><li>Otevírací doba, ceník služeb a fotogalerie</li><li>Hotovo do 3–5 pracovních dnů</li></ul>
-          <a href="#kontakt" class="btn btn--ghost btn--full">Mám zájem</a>
+          <ul>
+            <li>Web na jednu stránku, který vypadá dobře i na mobilu</li>
+            <li>Tlačítko „Zavolat“ a odkaz na mapu</li>
+            <li>Otevírací doba, ceník služeb a fotky</li>
+            <li>Hotovo do 3–5 pracovních dnů</li>
+          </ul>
+          <a href="#kontakt" class="btn btn--ghost btn--full" data-plan="start">Vybrat Start</a>
         </article>
         <article class="plan plan--pop reveal">
           <span class="badge">Doporučeno</span>
           <h3>Standard</h3>
           <p class="plan__d">Pro autoservisy, ordinace, bistra a lokální firmy.</p>
           <p class="price">8 900 <small>Kč</small></p>
-          <ul><li>Vícestránkový web (3–5 stránek: Úvod, Služby, Ceník, Reference, Kontakt)</li><li>Kontaktní / poptávkový formulář na e-mail</li><li>Základní SEO pro lokální vyhledávání (Google, Seznam)</li><li>Propojení s Google Firemním profilem</li><li>Hotovo do 7 pracovních dnů</li></ul>
-          <a href="#kontakt" class="btn btn--dark btn--full">Mám zájem</a>
+          <ul>
+            <li>3–5 stránek: Úvod, Služby, Ceník, Reference, Kontakt</li>
+            <li>Formulář, přes který vám zákazníci napíšou na e-mail</li>
+            <li>Aby vás lidé našli na Googlu a Seznamu (základní SEO) a napojení na Google Firemní profil</li>
+            <li>Hotovo do 7 pracovních dnů</li>
+          </ul>
+          <a href="#kontakt" class="btn btn--dark btn--full" data-plan="standard">Vybrat Standard</a>
         </article>
-        <article class="plan reveal">
-          <h3>Péče &amp; Provoz <span class="alt">(Měsíčně)</span></h3>
-          <p class="plan__d">Pro všechny klienty, kteří nechtějí mít starosti.</p>
-          <p class="price">390 <small>Kč / měs.</small></p>
-          <ul><li>Rychlý a bezpečný hosting + SSL certifikát</li><li>Technický dohled a aktualizace</li><li>Drobná úprava obsahu každý měsíc v ceně (např. změna ceníku, otevírací doby, nová fotka)</li><li>Bez závazků</li></ul>
-          <a href="#kontakt" class="btn btn--ghost btn--full">Mám zájem</a>
-        </article>
+      </div>
+      <div class="addon reveal">
+        <div class="addon__title">
+          <h3>Péče a provoz</h3>
+          <p>Nepovinný doplněk k jakémukoli webu</p>
+        </div>
+        <p class="addon__text">Hosting a zabezpečená adresa (https), aktualizace a jedna drobná úprava měsíčně, například nový ceník, otevírací doba nebo fotka. Bez závazků.</p>
+        <div class="addon__buy">
+          <p class="price price--sm">390 <small>Kč / měs.</small></p>
+          <a href="#kontakt" class="btn btn--ghost" data-plan="care">Chci péči o web</a>
+        </div>
       </div>
     </div>
   </section>
@@ -146,15 +146,14 @@
   <section class="section" id="postup">
     <div class="wrap steps-wrap">
       <div class="head reveal">
-        <p class="kicker">02 — Postup</p>
         <h2>Jednoduchá spolupráce <em>bez zbytečností.</em></h2>
         <p class="sub">Vždy víte, co se děje a kolik to bude stát.</p>
       </div>
       <ol class="steps">
-        <li class="reveal"><span class="n">01</span><div><h3>Seznámení</h3><p>Probereme vaši firmu, cíle a zákazníky. Domluvíme rozsah a cenu předem, bez překvapení.</p></div></li>
-        <li class="reveal"><span class="n">02</span><div><h3>Návrh</h3><p>Připravím vizuální návrh. Společně doladíme, dokud nebudete spokojeni.</p></div></li>
-        <li class="reveal"><span class="n">03</span><div><h3>Vývoj</h3><p>Návrh převedu do rychlého a čistého kódu. Průběžně ukazuji, jak web roste, bez mizení na tři týdny.</p></div></li>
-        <li class="reveal"><span class="n">04</span><div><h3>Spuštění a podpora</h3><p>Web nasadím, otestuji a předám. I potom jsem vám k ruce, kdybyste cokoli potřebovali.</p></div></li>
+        <li class="reveal"><span class="n">1</span><div><h3>Seznámení</h3><p>Probereme vaši firmu a zákazníky. Stačí mi to, co už máte, třeba texty a fotky z Facebooku. Rozsah a cenu domluvíme předem, bez překvapení.</p></div></li>
+        <li class="reveal"><span class="n">2</span><div><h3>Návrh</h3><p>Připravím vizuální návrh. Společně doladíme, dokud nebudete spokojeni.</p></div></li>
+        <li class="reveal"><span class="n">3</span><div><h3>Vývoj</h3><p>Návrh převedu do rychlého a čistého kódu. Průběžně ukazuji, jak web roste, bez mizení na tři týdny.</p></div></li>
+        <li class="reveal"><span class="n">4</span><div><h3>Spuštění a podpora</h3><p>Web nasadím, otestuji a předám. I potom jsem vám k ruce, kdybyste cokoli potřebovali.</p></div></li>
       </ol>
     </div>
   </section>
@@ -163,29 +162,28 @@
   <section class="section section--tint" id="prace">
     <div class="wrap">
       <div class="head reveal">
-        <p class="kicker">03 — Práce</p>
         <h2>Takhle může vypadat <em>váš web.</em></h2>
         <p class="sub">Tři ukázkové weby pro fiktivní firmy z oborů, kterým se věnuji. Kliknutím si otevřete celý web, ne jen náhled. Vaše reference tu přibudou po prvních spuštěných projektech.</p>
       </div>
       <div class="work">
         <a href="demo/autoservis/" target="_blank" rel="noopener" class="work__item reveal" aria-label="Otevřít ukázku: Autoservis Rychlík">
-          <div class="browser browser--sm">
+          <div class="browser">
             <div class="browser__bar"><i></i><i></i><i></i><span>autoservis-rychlik.cz</span></div>
-            <div class="thumb"><iframe src="demo/autoservis/" title="Náhled: Autoservis Rychlík" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe></div>
+            <div class="thumb"><iframe src="demo/autoservis/" title="" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe></div>
           </div>
           <div class="work__meta"><div><h3>Autoservis Rychlík</h3><p>Autoservis: tlačítko pro volání, ceník prací, otevírací doba</p></div><span class="tag">Ukázka ↗</span></div>
         </a>
         <a href="demo/salon/" target="_blank" rel="noopener" class="work__item reveal" aria-label="Otevřít ukázku: Salon Linie">
-          <div class="browser browser--sm">
+          <div class="browser">
             <div class="browser__bar"><i></i><i></i><i></i><span>salon-linie.cz</span></div>
-            <div class="thumb"><iframe src="demo/salon/" title="Náhled: Salon Linie" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe></div>
+            <div class="thumb"><iframe src="demo/salon/" title="" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe></div>
           </div>
           <div class="work__meta"><div><h3>Salon Linie</h3><p>Kadeřnictví: ceník, rezervace, klidný vzhled</p></div><span class="tag">Ukázka ↗</span></div>
         </a>
         <a href="demo/bistro/" target="_blank" rel="noopener" class="work__item reveal" aria-label="Otevřít ukázku: Bistro U Mlýna">
-          <div class="browser browser--sm">
+          <div class="browser">
             <div class="browser__bar"><i></i><i></i><i></i><span>bistro-u-mlyna.cz</span></div>
-            <div class="thumb"><iframe src="demo/bistro/" title="Náhled: Bistro U Mlýna" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe></div>
+            <div class="thumb"><iframe src="demo/bistro/" title="" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe></div>
           </div>
           <div class="work__meta"><div><h3>Bistro U Mlýna</h3><p>Bistro: denní menu hned na první pohled</p></div><span class="tag">Ukázka ↗</span></div>
         </a>
@@ -193,31 +191,15 @@
     </div>
   </section>
 
-  <!-- CITÁT -->
-  <section class="quote">
-    <div class="wrap">
-      <blockquote class="reveal">
-        <span class="quote__mark" aria-hidden="true">„</span>
-        <p>Lidé zapomenou, co jste jim řekli. Nezapomenou ale, <em>jak se jim s vámi jednalo.</em></p>
-        <footer>Proto se mnou komunikujete přímo</footer>
-      </blockquote>
-    </div>
-  </section>
-
   <!-- O MNĚ -->
   <section class="section" id="o-mne">
     <div class="wrap about">
-      <div class="about__photo reveal" aria-hidden="true">
-        <div class="avatar"><span>G</span></div>
-        <div class="about__badge">Webdesign &amp; vývoj</div>
-      </div>
       <div class="about__text reveal">
-        <p class="kicker">04 — O mně</p>
         <h2>Jsem Adrian. Dělám weby, <em>za kterými si stojím.</em></h2>
+        <blockquote class="pull">Lidé zapomenou, co jste jim řekli. Nezapomenou ale, jak se jim s vámi jednalo.</blockquote>
         <p>Pracuji sám a nedělám nic napůl. Když do něčeho jdu, jdu do toho naplno a s „dostatečným“ se nesmířím. Web, který vám předám, musí být takový, za který bych se nestyděl ani já.</p>
         <p>Mám za sebou řadu projektů, které se netýkaly jen webů. Dělal jsem třeba hru, kterou jsem odprezentoval s kamarády. Pěkný a přehledný web je podle mě jedna z hlavních věcí, která přiláká zákazníky, a tak ho také dělám.</p>
         <p>Když jde o váš web, jsem vážný. Při kávě se ale smát dá.</p>
-        <ul class="ticks"><li>Nedělám nic napůl</li><li>Přímá komunikace bez prostředníků</li><li>Pevná cena dohodnutá předem</li></ul>
       </div>
     </div>
   </section>
@@ -227,9 +209,8 @@
     <div class="wrap">
       <div class="contact__box">
         <div class="contact__side reveal">
-          <p class="kicker kicker--light">05 — Kontakt</p>
           <h2>Pojďme postavit <em>váš web.</em></h2>
-          <p>Napište pár vět o projektu. Ozvu se do 24 hodin s nezávaznou nabídkou.</p>
+          <p>Stačí pár vět o vaší firmě. Nebo jen napište telefon a zavolám vám.</p>
           <ul class="contact__list">
             <li><span>E-mail</span><a href="mailto:kontakt.gorodigital@gmail.com">kontakt.gorodigital@gmail.com</a></li>
             <li><span>Telefon</span><a href="tel:+420731061199">731 061 199</a></li>
@@ -237,17 +218,39 @@
           </ul>
         </div>
         <form class="form reveal" id="form" novalidate>
-          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
-          <label>Jméno<input name="name" type="text" required placeholder="Jan Novák" autocomplete="name"></label>
-          <label>E-mail<input name="email" type="email" required placeholder="jan@firma.cz" autocomplete="email"></label>
-          <label>Co potřebujete?
-            <select name="type">
-              <option>Start (jednostránkový web)</option><option>Standard (vícestránkový web)</option><option>Péče &amp; Provoz (měsíčně)</option><option>Něco jiného</option>
+          <div class="hp" aria-hidden="true"><label>Web <input type="text" name="company_url" tabindex="-1" autocomplete="off"></label></div>
+          <div class="field">
+            <label for="f-name">Jméno</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Jan Novák" aria-describedby="e-name">
+            <p class="err" id="e-name"></p>
+          </div>
+          <div class="field">
+            <label for="f-email">E-mail</label>
+            <input id="f-email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="off" placeholder="jan@firma.cz" aria-describedby="e-email">
+            <p class="err" id="e-email"></p>
+          </div>
+          <div class="field">
+            <label for="f-phone">Telefon <span class="opt">(stačí e-mail nebo telefon)</span></label>
+            <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="731 000 000" aria-describedby="e-phone">
+            <p class="err" id="e-phone"></p>
+          </div>
+          <div class="field">
+            <label for="f-type">Co vás zajímá?</label>
+            <select id="f-type" name="type">
+              <option value="start">Start: web na jednu stránku (4 900 Kč)</option>
+              <option value="standard">Standard: web o 3–5 stránkách (8 900 Kč)</option>
+              <option value="care">Péče a provoz (390 Kč měsíčně)</option>
+              <option value="other">Něco jiného nebo zatím nevím</option>
             </select>
-          </label>
-          <label>Zpráva<textarea name="msg" rows="4" required placeholder="Pár vět o vaší firmě a představě…"></textarea></label>
-          <button class="btn btn--light btn--full" type="submit">Odeslat poptávku <span class="arr">→</span></button>
-          <p class="form__note" id="formNote" role="status"></p>
+          </div>
+          <div class="field">
+            <label for="f-msg">Zpráva</label>
+            <textarea id="f-msg" name="msg" rows="4" placeholder="Pár vět o vaší firmě a představě…" aria-describedby="e-msg"></textarea>
+            <p class="err" id="e-msg"></p>
+          </div>
+          <button class="btn btn--light btn--full" type="submit">Odeslat zprávu <span class="arr" aria-hidden="true">→</span></button>
+          <p class="reassure">Odpovím do 24 hodin. Žádný spam, žádný závazek.</p>
+          <p class="form__note" id="formNote" role="status" aria-live="polite"></p>
         </form>
       </div>
     </div>
@@ -257,11 +260,16 @@
 
 <footer class="footer">
   <div class="wrap footer__in">
-    <a href="#top" class="logo">Goro<span>Digital</span><i></i></a>
+    <a href="#top" class="logo" aria-label="GoroDigital, zpět na začátek">Goro<span>Digital</span><i></i></a>
     <p>© <span id="year"></span> GoroDigital. Všechna práva vyhrazena.</p>
     <a href="#top" class="totop">Zpět na start ↑</a>
   </div>
 </footer>
+
+<nav class="callbar" id="callbar" aria-label="Rychlý kontakt">
+  <a class="btn btn--dark" href="tel:+420731061199">Zavolat 731 061 199</a>
+  <a class="btn btn--ghost" href="#kontakt">Napsat mi</a>
+</nav>
 
 <script src="script.js"></script>
 </body>

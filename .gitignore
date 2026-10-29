@@ -2,3 +2,18 @@
 node_modules/
 .DS_Store
 _variants/
+
+# impeccable-ignore-start
+# Ephemeral output and runtime state; shared artifacts (config.json, critique/*.md, PRODUCT.md, DESIGN.md) stay tracked.
+**/.impeccable/config.local.json
+**/.impeccable/hook.cache.json
+**/.impeccable/hook.pending.json
+**/.impeccable/*.png
+**/.impeccable/review/
+**/.impeccable/questions/
+**/.impeccable/live/server.json
+**/.impeccable/live/sessions/
+**/.impeccable/live/previews/
+**/.impeccable/live/annotations/
+**/.impeccable/live/cache/
+# impeccable-ignore-end
