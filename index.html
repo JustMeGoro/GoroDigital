@@ -241,13 +241,14 @@
             <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Jan Novák" aria-describedby="e-name">
             <p class="err" id="e-name"></p>
           </div>
+          <p class="hint">Stačí vyplnit e-mail nebo telefon, podle toho, co vám víc vyhovuje.</p>
           <div class="field">
             <label for="f-email">E-mail</label>
             <input id="f-email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="off" placeholder="jan@firma.cz" aria-describedby="e-email">
             <p class="err" id="e-email"></p>
           </div>
           <div class="field">
-            <label for="f-phone">Telefon <span class="opt">(stačí e-mail nebo telefon)</span></label>
+            <label for="f-phone">Telefon</label>
             <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="731 000 000" aria-describedby="e-phone">
             <p class="err" id="e-phone"></p>
           </div>
@@ -265,9 +266,9 @@
             <textarea id="f-msg" name="msg" rows="4" placeholder="Pár vět o vaší firmě a představě…" aria-describedby="e-msg"></textarea>
             <p class="err" id="e-msg"></p>
           </div>
+          <p class="form__note" id="formNote" role="status" aria-live="polite"></p>
           <button class="btn btn--light btn--full" type="submit">Odeslat zprávu <span class="arr" aria-hidden="true">→</span></button>
           <p class="reassure">Odpovím do 24 hodin. Žádný spam, žádný závazek.</p>
-          <p class="form__note" id="formNote" role="status" aria-live="polite"></p>
         </form>
         <div class="sent" id="sent" hidden tabindex="-1" role="status">
           <span class="sent__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>

@@ -30,7 +30,7 @@ h1 em,h2 em{background:linear-gradient(transparent 58%,var(--hl) 58%,var(--hl) 9
 
 /* NAV */
 .nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px max(24px,calc((100% - 1200px)/2));transition:background .3s,box-shadow .3s}
-.nav.is-scrolled{background:rgba(255,255,255,.92);box-shadow:0 1px 0 var(--line)}
+.nav.is-scrolled{background:#fff;box-shadow:0 1px 0 var(--line)}
 .logo{font-family:var(--display);font-weight:800;font-size:1.3rem;letter-spacing:-.04em;display:inline-flex;align-items:center}
 .logo span{font-weight:400;margin-left:1px}
 .logo i{width:9px;height:9px;border-radius:2px;background:var(--hl);border:1.5px solid var(--ink);margin-left:5px;transform:translateY(3px) rotate(12deg)}
@@ -88,7 +88,7 @@ h1{font-family:var(--display);font-size:clamp(2.6rem,6.2vw,5.3rem);line-height:1
 .section--tint{background:var(--tint)}
 .head{max-width:760px;margin-bottom:64px}
 h2{font-family:var(--display);font-size:clamp(2.1rem,4.4vw,3.6rem);line-height:1.04;letter-spacing:-.04em;font-weight:800}
-.sub{margin-top:18px;color:var(--muted);font-size:1.1rem}
+.sub{margin-top:18px;color:var(--muted);font-size:1.1rem;max-width:60ch}
 
 /* PLANS */
 .plans{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;align-items:stretch}
@@ -128,7 +128,7 @@ h2{font-family:var(--display);font-size:clamp(2.1rem,4.4vw,3.6rem);line-height:1
 .steps p{color:var(--muted);max-width:460px}
 
 /* ABOUT */
-.about{max-width:760px}
+.about__text{max-width:760px}
 .about__text h2{margin-bottom:28px}
 .pull{margin:0 0 28px;padding:20px 24px;border:2px solid var(--ink);border-radius:var(--radius);background:var(--hl-soft);font-family:var(--display);font-size:1.4rem;line-height:1.32;letter-spacing:-.03em;font-weight:800}
 .about__text p{color:var(--muted);font-size:1.08rem;margin-bottom:16px;max-width:62ch}
@@ -160,6 +160,8 @@ h2{font-family:var(--display);font-size:clamp(2.1rem,4.4vw,3.6rem);line-height:1
 .form input::placeholder,.form textarea::placeholder{color:rgba(255,255,255,.58)}
 .form input:focus-visible,.form select:focus-visible,.form textarea:focus-visible{outline:3px solid var(--hl);outline-offset:2px;border-color:var(--hl);background:rgba(255,255,255,.1)}
 .form [aria-invalid=true]{border-color:var(--err);border-width:2px}
+.form [aria-invalid=true]:focus{outline:3px solid var(--hl);outline-offset:2px}
+.hint{font-size:.9rem;color:rgba(255,255,255,.78);margin-bottom:-6px}
 .err{color:var(--err);font-size:.9rem;font-weight:600}
 .err:empty{display:none}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
