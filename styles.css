@@ -4,8 +4,8 @@
   --ink:#0a0a0a;
   --muted:#5c5c56;
   --line:#e3e2db;
-  --hl:#b690ff;          /* highlighter violet: always used as a background behind dark text */
-  --hl-soft:#efe5ff;
+  --hl:#9060f8;          /* highlighter violet: always used as a background behind dark text */
+  --hl-soft:#e4d8fe;
   --err:#ff9aa5;
   --radius:16px;
   --display:"Bricolage Grotesque","Inter Tight",system-ui,sans-serif;
